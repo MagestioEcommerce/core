@@ -33,5 +33,11 @@
                 </item>
             </argument>
         </column>
+        <column name="sku_multiple" sortOrder="60">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">SKU Multiple</label>
+            </settings>
+        </column>
     </columns>
 </listing>
