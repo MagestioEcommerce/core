@@ -11,7 +11,8 @@
 
 * Download the extension
 * Unzip the file
-* Copy the contents in the root of Magento
+* Create app/code/Magestio/Core directory
+* Copy the contents to app/code/Magestio/Core
 
 
 ### Enable the extensions
