@@ -4,8 +4,15 @@
 <a href="https://magestio.com/"><img src="https://magestio.com/wp-content/uploads/magestio-logo@4x-8.png" align="left" width="120" height="25" ></a>
 </p>
 
+#
 ### Core functionality for Magento 2 Magestio extensions
 
+
+### Features
+* Color orders by their status.
+* Better encode for special characters at urls
+* Multi sku search at catalog grid
+* Show Categories of products at catalog grid
 
 ### Installation
 
