@@ -1,6 +1,23 @@
 
 @import '_icons.less';
 
+
+@bg-color-processing: #a7f3d0;
+@bg-color-processing-odd: darken(@bg-color-processing, 5%);
+@bg-color-processing-hover: darken(@bg-color-processing, 10%);
+
+@bg-color-canceled: #fecaca;
+@bg-color-canceled-odd: darken(@bg-color-canceled, 5%);
+@bg-color-canceled-hover: darken(@bg-color-canceled, 10%);
+
+@bg-color-complete: #d9f99d;
+@bg-color-complete-odd: darken(@bg-color-complete, 5%);
+@bg-color-complete-hover: darken(@bg-color-complete, 10%);
+
+@bg-color-pending: #fde68a;
+@bg-color-pending-odd: darken(@bg-color-pending, 5%);
+@bg-color-pending-hover: darken(@bg-color-pending, 10%);
+
 #menu-magestio-core-menu {
     & > a:before {
         content: @icon-magestio__content;
@@ -8,4 +25,68 @@
         font-size: 2rem;
         padding-top: .2rem;
     }
+}
+
+tr.data-row{
+    &.dt-pending{
+        td{
+            background-color: @bg-color-pending;
+        }
+        &._odd-row{
+            td{
+                background-color: @bg-color-pending-odd;
+            }
+        }
+        &:hover{
+            td{
+                background-color: @bg-color-pending-hover;
+            }
+        }
+    }
+    &.dt-processing{
+        td{
+            background-color: @bg-color-processing;
+        }
+        &._odd-row{
+            td{
+                background-color: @bg-color-processing-odd;
+            }
+        }
+        &:hover{
+            td{
+                background-color: @bg-color-processing-hover;
+            }
+        }
+    }
+    &.dt-canceled{
+        td{
+            background-color: @bg-color-canceled;
+        }
+        &._odd-row{
+            td{
+                background-color: @bg-color-canceled-odd;
+            }
+        }
+        &:hover{
+            td{
+                background-color: @bg-color-canceled-hover;
+            }
+        }
+    }
+    &.dt-complete{
+        td{
+            background-color: @bg-color-complete;
+        }
+        &._odd-row{
+            td{
+                background-color: @bg-color-complete-odd;
+            }
+        }
+        &:hover{
+            td{
+                background-color: @bg-color-complete-hover;
+            }
+        }
+    }
+
 }

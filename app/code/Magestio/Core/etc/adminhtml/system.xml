@@ -4,5 +4,18 @@
         <tab id="magestio" translate="label" sortOrder="500">
             <label>Magestio</label>
         </tab>
+        <section id="magestio_core" translate="label" type="text" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+            <resource>Magestio_Core::configuration</resource>
+            <label>Core</label>
+            <tab>magestio</tab>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled_color_status" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled Color Status</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enables or disables this functionality</comment>
+                </field>
+            </group>
+        </section>
     </system>
 </config>

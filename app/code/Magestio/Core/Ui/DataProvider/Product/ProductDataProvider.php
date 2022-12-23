@@ -5,10 +5,6 @@ namespace Magestio\Core\Ui\DataProvider\Product;
 use Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider as DataProvider;
 use Magento\Framework\Api\Filter;
 
-/**
- * Class ProductDataProvider
- * @package Magestio\Core\Ui\DataProvider\Product
- */
 class ProductDataProvider extends DataProvider
 {
     public function addFilter(Filter $filter)
@@ -31,6 +27,7 @@ class ProductDataProvider extends DataProvider
             }
 
             $this->getCollection()->addFieldToFilter($filters);
+
 
         } elseif (isset($this->addFilterStrategies[$filter->getField()])) {
             $this->addFilterStrategies[$filter->getField()]

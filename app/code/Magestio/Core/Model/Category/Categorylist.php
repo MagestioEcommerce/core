@@ -2,11 +2,11 @@
 
 namespace Magestio\Core\Model\Category;
 
-use Magento\Catalog\Api\CategoryRepositoryInterface;
-use Magento\Catalog\Model\CategoryFactory;
-use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Option\ArrayInterface;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Catalog\Model\CategoryFactory;
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Catalog\Api\CategoryRepositoryInterface;
 
 class CategoryList implements ArrayInterface
 {
@@ -94,16 +94,19 @@ class CategoryList implements ArrayInterface
         $cacheKey = sprintf('%d-%d-%d-%d', $rootCategoryId, $sorted, $asCollection, $toLoad);
 
         if (!isset($this->_storeCategories[$cacheKey])) {
-            $category = $this->categoryFactory->create();
 
-            $recursionLevel = max(
-                0,
-                (int)$this->scopeConfig->getValue(
-                    'catalog/navigation/max_depth',
-                    \Magento\Store\Model\ScopeInterface::SCOPE_STORE
-                )
-            );
+                $category = $this->categoryFactory->create();
+
+                $recursionLevel = max(
+                    0,
+                    (int)$this->scopeConfig->getValue(
+                        'catalog/navigation/max_depth',
+                        \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+                    )
+                );
             $this->_storeCategories[$cacheKey] = $category->getCategories($rootCategoryId, $recursionLevel, $sorted, $asCollection, $toLoad);
+
+
         }
         return $this->_storeCategories[$cacheKey];
     }
@@ -118,12 +121,13 @@ class CategoryList implements ArrayInterface
         foreach ($tree as $item) {
             /** @var \Magento\Framework\Data\Tree\Node $item */
             $options[] = [
-                'label' => $indent . $item->getName(),
+                'label' => $indent.$item->getName(),
                 'value' => $item->getId()
             ];
             if ($item->getChildren() and count($item->getChildren()) > 0) {
-                $this->tree($options, $item->getChildren(), $indent . '--');
+                $this->tree($options, $item->getChildren(), $indent.'--');
             }
         }
     }
+
 }
