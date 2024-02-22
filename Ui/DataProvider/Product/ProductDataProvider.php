@@ -4,9 +4,25 @@ namespace Magestio\Core\Ui\DataProvider\Product;
 
 use Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider as DataProvider;
 use Magento\Framework\Api\Filter;
+use Magento\Ui\DataProvider\Modifier\ModifierInterface;
 
 class ProductDataProvider extends DataProvider
 {
+
+    /**
+     * Get data
+     *
+     * @return array
+     */
+    public function getData()
+    {
+        if (!$this->getCollection()->isLoaded()) {
+            $this->collection->addOrder('entity_id', 'DESC');
+        }
+
+        return parent::getData();
+    }
+
     public function addFilter(Filter $filter)
     {
         if ($filter->getField() == 'category_id') {
